@@ -1,0 +1,23 @@
+:root {
+  /* Illustrative defaults only; adapt to each product. */
+  --color-bg: #fff;
+  --color-surface: #f6f7f9;
+  --color-text: #17191f;
+  --color-text-muted: #626a76;
+  --color-border: #e1e5eb;
+  --color-primary: #3157d5;
+  --color-success: #167a52;
+  --color-warning: #8a5200;
+  --color-danger: #b52c36;
+  --color-focus: #245fdb;
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --radius-sm: .375rem;
+  --radius-md: .625rem;
+  --radius-lg: 1rem;
+}
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
