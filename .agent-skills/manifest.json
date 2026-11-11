@@ -1,0 +1,62 @@
+{
+  "name": "orqiva-ui-ux",
+  "version": "1.0.0",
+  "displayName": "ORQIVA UI/UX : Adaptive Design Intelligence",
+  "description": "Adaptive UI/UX design intelligence for planning, designing, implementing, redesigning, and auditing production-quality mobile applications and websites.",
+  "author": "CodeByArnob",
+  "homepage": "https://codebyarnob.github.io/orqiva-ui-ux/",
+  "repository": "https://github.com/CodeByArnob/orqiva-ui-ux",
+  "license": "MIT",
+  "entrypoint": "SKILL.md",
+  "tags": [
+    "ui-ux",
+    "design-system",
+    "accessibility",
+    "wcag-aa",
+    "tailwind",
+    "mobile-native",
+    "react",
+    "flutter",
+    "jetpack-compose"
+  ],
+  "compatibility": {
+    "agents": [
+      "claude-code",
+      "antigravity",
+      "cursor",
+      "windsurf",
+      "roo-code",
+      "gemini-cli"
+    ]
+  },
+  "modules": {
+    "references": [
+      "references/specialized-archetypes.md",
+      "references/design-directions.md",
+      "references/ux-architecture.md",
+      "references/visual-foundations.md",
+      "references/design-systems-and-implementation.md",
+      "references/responsive-design.md",
+      "references/accessibility.md",
+      "references/interaction-patterns.md",
+      "references/mobile-platforms.md",
+      "references/web-applications.md",
+      "references/websites-and-landing-pages.md",
+      "references/quality-audit.md"
+    ],
+    "workflows": [
+      "workflows/new-application.md",
+      "workflows/new-website.md",
+      "workflows/redesign-existing-ui.md",
+      "workflows/reference-to-implementation.md",
+      "workflows/design-review.md"
+    ],
+    "checklists": [
+      "checklists/accessibility.md",
+      "checklists/mobile-ui.md",
+      "checklists/responsive.md",
+      "checklists/website.md",
+      "checklists/design-system.md"
+    ]
+  }
+}
