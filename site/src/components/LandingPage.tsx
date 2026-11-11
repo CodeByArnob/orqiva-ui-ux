@@ -7,6 +7,9 @@ import {
 import { TokenPlayground } from './TokenPlayground';
 import { MotionHeroGraphic } from './MotionHeroGraphic';
 import { ContrastCalculator } from './ContrastCalculator';
+import { InteractiveWalkthroughDemo } from './InteractiveWalkthroughDemo';
+import { MultiFrameworkStudio } from './MultiFrameworkStudio';
+import { McpServerSection } from './McpServerSection';
 
 export const LandingPage: React.FC<{ 
   onNavigateToDocs: () => void;
@@ -139,6 +142,11 @@ export const LandingPage: React.FC<{
         <MotionHeroGraphic />
       </section>
 
+      {/* Interactive Walkthrough Simulator : Live Demo Video Simulation */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <InteractiveWalkthroughDemo />
+      </section>
+
       {/* Interactive CLI Showcase Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/70 border border-slate-800 shadow-xl">
@@ -237,6 +245,16 @@ export const LandingPage: React.FC<{
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Multi-Language Programming Code Studio */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <MultiFrameworkStudio />
+      </section>
+
+      {/* Production MCP Server Integration */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <McpServerSection />
       </section>
 
       {/* Supported Coding Agents Ecosystem */}

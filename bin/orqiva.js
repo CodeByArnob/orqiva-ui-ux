@@ -669,6 +669,7 @@ function runHelp() {
   console.log(`  ${color.cyan}init${color.reset}       : Interactive setup wizard to inject design tokens & Tailwind config`);
   console.log(`  ${color.cyan}install${color.reset}    : Install ORQIVA skill into Cursor, Claude Code, and Windsurf`);
   console.log(`  ${color.cyan}audit${color.reset}      : Audit UI files for contrast, touch targets, and WCAG AA compliance`);
+  console.log(`  ${color.cyan}mcp${color.reset}        : Launch the Model Context Protocol (MCP) server for Claude Desktop & Cursor`);
   console.log(`  ${color.cyan}tokens${color.reset}     : Export design tokens to multi-framework assets`);
   console.log(`  ${color.cyan}showcase${color.reset}   : List 7 tier-1 application design archetypes and specifications`);
   console.log(`  ${color.cyan}version${color.reset}    : Print ORQIVA CLI version`);
@@ -691,6 +692,9 @@ async function main() {
       break;
     case 'audit':
       await runAudit();
+      break;
+    case 'mcp':
+      await import('../mcp/server.js');
       break;
     case 'install':
       await runInstall(args);

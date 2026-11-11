@@ -96,8 +96,8 @@ for (const file of requiredShowcases) {
   }
 }
 
-// 4. Validate Agent Skills Manifest & CLI Tool
-console.log('\n4. Validating Agent Skills Manifest & CLI Tool...');
+// 4. Validate Agent Skills Manifest, MCP Server & CLI Tool
+console.log('\n4. Validating Agent Skills Manifest, MCP Server & CLI Tool...');
 const manifestPath = path.join(rootDir, '.agent-skills', 'manifest.json');
 assert(fs.existsSync(manifestPath), '.agent-skills/manifest.json exists');
 if (fs.existsSync(manifestPath)) {
@@ -112,6 +112,15 @@ if (fs.existsSync(cliPath)) {
   const cliContent = fs.readFileSync(cliPath, 'utf8');
   assert(cliContent.startsWith('#!/usr/bin/env node'), 'bin/orqiva.js has shebang');
 }
+
+const mcpServerPath = path.join(rootDir, 'mcp', 'server.js');
+assert(fs.existsSync(mcpServerPath), 'mcp/server.js exists');
+
+const mcpCliPath = path.join(rootDir, 'bin', 'orqiva-mcp.js');
+assert(fs.existsSync(mcpCliPath), 'bin/orqiva-mcp.js exists');
+
+const walkthroughSvgPath = path.join(rootDir, 'assets', 'demo-walkthrough.svg');
+assert(fs.existsSync(walkthroughSvgPath), 'assets/demo-walkthrough.svg exists');
 
 // 5. Validate Design Token Definitions
 console.log('\n5. Validating Design Token Definitions...');
