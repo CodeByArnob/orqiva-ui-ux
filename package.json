@@ -6,10 +6,11 @@
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "test": "node scripts/validate.mjs",
+    "tokens:compile": "node scripts/compile-tokens.mjs",
     "build:site": "cd site && npm run build",
     "capture": "node scripts/capture-screenshots.mjs",
     "package": "node scripts/package-release.mjs",
-    "build": "npm run validate && npm run build:site && npm run capture && npm run build:site && npm run package"
+    "build": "npm run tokens:compile && npm run validate && npm run build:site && npm run capture && npm run build:site && npm run package"
   },
   "repository": {
     "type": "git",

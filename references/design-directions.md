@@ -1,6 +1,6 @@
 # Adaptive Visual Design Directions
 
-ORQIVA's core premise is **adaptive visual intelligence**. Generic AI models apply a uniform aesthetic—dark backgrounds, purple gradients, frosted glass, and oversized cards—regardless of whether the product is a medical charting system or a banking app.
+ORQIVA's core premise is **adaptive visual intelligence**. Generic AI models apply a uniform aesthetic - dark backgrounds, purple gradients, frosted glass, and oversized cards - regardless of whether the product is a medical charting system or a banking app.
 
 ORQIVA requires deliberate selection of a visual direction anchored in product purpose, user mental models, content density, and platform conventions.
 

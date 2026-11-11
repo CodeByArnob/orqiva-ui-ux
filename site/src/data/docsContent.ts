@@ -190,7 +190,7 @@ Use this workflow when creating a new application from scratch:
 All notable changes to ORQIVA UI/UX are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
-### [1.0.0] — Production Release (2026-11-11)
+### [1.0.0] : Production Release (2026-11-11)
 #### Added
 - Complete ORQIVA Adaptive Design Intelligence skill ecosystem.
 - 11 comprehensive design reference modules (Visual Directions, UX Architecture, Multi-Framework Systems, Responsive Reflow, Accessibility, etc.).

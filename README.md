@@ -1,4 +1,8 @@
-# ORQIVA UI/UX — Adaptive Design Intelligence
+<div align="center">
+  <img src="assets/orqiva-banner.svg" alt="ORQIVA UI/UX Banner" width="100%" />
+</div>
+
+# ORQIVA UI/UX : Adaptive Design Intelligence
 
 [![CI & Validation](https://github.com/CodeByArnob/orqiva-ui-ux/actions/workflows/ci.yml/badge.svg)](https://github.com/CodeByArnob/orqiva-ui-ux/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
