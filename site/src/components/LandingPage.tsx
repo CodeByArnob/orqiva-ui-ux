@@ -10,6 +10,7 @@ import { ContrastCalculator } from './ContrastCalculator';
 import { InteractiveWalkthroughDemo } from './InteractiveWalkthroughDemo';
 import { MultiFrameworkStudio } from './MultiFrameworkStudio';
 import { McpServerSection } from './McpServerSection';
+import { RealAppGallery } from './RealAppGallery';
 
 export const LandingPage: React.FC<{ 
   onNavigateToDocs: () => void;
@@ -250,6 +251,11 @@ export const LandingPage: React.FC<{
       {/* Multi-Language Programming Code Studio */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <MultiFrameworkStudio />
+      </section>
+
+      {/* Real Application Showcase Gallery - 7 Tier-1 Archetypes */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <RealAppGallery />
       </section>
 
       {/* Production MCP Server Integration */}

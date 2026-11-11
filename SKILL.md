@@ -1,11 +1,13 @@
 ---
 name: orqiva-ui-ux
-description: Adaptive UI/UX design intelligence for planning, designing, implementing, redesigning, and auditing production-quality mobile applications and websites.
+description: Adaptive UI/UX design intelligence for planning, designing, implementing, redesigning, and auditing production-quality mobile applications, websites, landing pages, SaaS dashboards, and enterprise tools across all major frameworks.
 license: MIT
 compatibility: Agent Skills-compatible coding agents (Claude Code, Antigravity, Cursor, Windsurf, Roo Code, Gemini CLI, Open Agent Skills).
 metadata:
   author: ORQIVA
   version: "1.0.0"
+  mcp_server: mcp/server.js
+  cli_tool: bin/orqiva.js
 ---
 
 # ORQIVA : Adaptive UI/UX Design Intelligence
@@ -96,6 +98,11 @@ Load only the reference modules relevant to your specific task to preserve conte
 |---|---|---|
 | **New Application (Web / Mobile)** | [references/ux-architecture.md](references/ux-architecture.md)<br>[references/visual-foundations.md](references/visual-foundations.md)<br>[references/design-directions.md](references/design-directions.md) | [workflows/new-application.md](workflows/new-application.md) |
 | **Specialized Archetypes (Luxury, Neo-Banking, SaaS)** | [references/specialized-archetypes.md](references/specialized-archetypes.md)<br>[references/visual-foundations.md](references/visual-foundations.md) | [workflows/new-application.md](workflows/new-application.md) |
+| **Luxury Editorial E-Commerce** | [references/specialized-archetypes.md](references/specialized-archetypes.md)<br>[references/visual-foundations.md](references/visual-foundations.md) | [workflows/new-application.md](workflows/new-application.md) |
+| **Cosmic FinTech SaaS / Telemetry Dashboard** | [references/specialized-archetypes.md](references/specialized-archetypes.md)<br>[references/web-applications.md](references/web-applications.md) | [workflows/new-application.md](workflows/new-application.md) |
+| **Neo-Banking / Mobile Finance App** | [references/specialized-archetypes.md](references/specialized-archetypes.md)<br>[references/mobile-platforms.md](references/mobile-platforms.md) | [workflows/new-application.md](workflows/new-application.md) |
+| **Dark Productivity / Task Manager App** | [references/specialized-archetypes.md](references/specialized-archetypes.md)<br>[references/interaction-patterns.md](references/interaction-patterns.md) | [workflows/new-application.md](workflows/new-application.md) |
+| **Workspace / Enterprise Collaboration App** | [references/specialized-archetypes.md](references/specialized-archetypes.md)<br>[references/web-applications.md](references/web-applications.md) | [workflows/new-application.md](workflows/new-application.md) |
 | **New Website / Landing Page** | [references/websites-and-landing-pages.md](references/websites-and-landing-pages.md)<br>[references/responsive-design.md](references/responsive-design.md) | [workflows/new-website.md](workflows/new-website.md) |
 | **Redesign Existing UI** | [references/quality-audit.md](references/quality-audit.md)<br>[references/design-directions.md](references/design-directions.md) | [workflows/redesign-existing-ui.md](workflows/redesign-existing-ui.md) |
 | **SaaS / Web App / Dashboard** | [references/web-applications.md](references/web-applications.md)<br>[references/interaction-patterns.md](references/interaction-patterns.md) | [workflows/new-application.md](workflows/new-application.md) |
