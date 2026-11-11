@@ -540,13 +540,37 @@ async function runInstall(args) {
 
   const cwd = process.cwd();
   const skillPromptRule = `
-## ORQIVA UI/UX Design Intelligence
+## ORQIVA UI/UX Design Intelligence : Adaptive Protocol
+
 Always adopt the ORQIVA adaptive UI/UX protocol before designing, modifying, or reviewing user interfaces.
-1. Inspect the codebase conventions, design tokens, and existing visual identity before proposing UI changes.
-2. Select an intentional visual direction tailored to the product purpose (see ORQIVA archetypes).
-3. Ensure all components implement complete states (default, hover, focus-visible, active, disabled, loading, empty, error).
-4. Strictly enforce WCAG 2.2 Level AA contrast (4.5:1 for body, 3:1 for large text and UI controls).
-5. Enforce minimum 44x44px touch targets on mobile touch viewports.
+
+### 1. Contextual Archetype Selection
+Never default to generic dark purple gradients. Select an intentional visual direction matching the product domain:
+- Luxury Editorial E-Commerce: Obsidian (#0B0B0D) + Champagne Gold (#D4AF37) + Serif display headings.
+- Cosmic FinTech SaaS: Deep Void (#060714) + Neon Violet (#8B5CF6) + Cyan (#06B6D4) + Radial glow nebulae.
+- Liquid Chrome Neo-Banking: Obsidian (#050505) + Coral Crimson (#FF3B56) + Dedicated 56px tactile keypad.
+- Dark Pulse Personal Metrics: Stealth Navy (#0C0D14) + SVG goal progress rings + 7-day velocity bar metrics.
+- Timetable Calendar & Execution: Dark Minimal (#0E0F13) + Date scrubber + Real-time timetable needle.
+- Neumorphic Dark Workspace: Matte Charcoal (#0E0E12) + Soft elevated cards + Team absence matrix.
+- Dual Mint Cards & Spending: Dark Slate (#111214) + Mint (#2DD4BF) + 6-segment spending breakdown donut.
+
+### 2. Complete Interactive State Coverage
+Every interactive component must provide:
+- Default state with unmistakable visual hierarchy.
+- Hover state with smooth subtle transition (scale 1.02x or border highlight).
+- Focus-visible state with distinct ring (outline-none focus-visible:ring-2 focus-visible:ring-sky-500).
+- Active state with tactile feedback.
+- Disabled state with reduced opacity and cursor-not-allowed.
+- Loading skeleton state for asynchronous data fetching.
+- Empty state with descriptive guidance and primary action.
+- Error recovery state with actionable remedy.
+
+### 3. Accessibility & Ergonomics Standards (WCAG 2.2 AA)
+- Contrast: Minimum 4.5:1 for body text; 3:1 for large text and UI borders.
+- Touch Targets: Minimum 44x44px (iOS) or 48x48px (Android/Web).
+- Semantic Elements: Use <main>, <nav>, <header>, <article>, <button type="button">. Never use <div onClick>.
+- Telemetry & Numbers: Apply tabular-nums to currencies, stats, timers, and data tables.
+- Mobile Layout: Anchor primary actions in the thumb zone; respect safe-area insets.
 `;
 
   // Cursor rules
@@ -573,6 +597,26 @@ Always adopt the ORQIVA adaptive UI/UX protocol before designing, modifying, or 
   } else {
     console.log(`  ${color.dim}- Claude Code already configured in CLAUDE.md${color.reset}`);
   }
+
+  // Claude Code skills folder (.claude/skills/orqiva-ui-ux/SKILL.md)
+  const claudeSkillDir = path.join(cwd, '.claude', 'skills', 'orqiva-ui-ux');
+  if (!fs.existsSync(claudeSkillDir)) fs.mkdirSync(claudeSkillDir, { recursive: true });
+  const claudeSkillFile = path.join(claudeSkillDir, 'SKILL.md');
+  const claudeSkillDoc = `---
+name: orqiva-ui-ux
+description: Adaptive UI/UX design intelligence for planning, designing, implementing, and auditing production interfaces.
+license: MIT
+compatibility: Claude Code, Antigravity, Cursor, Windsurf
+metadata:
+  author: ORQIVA
+  version: "1.0.0"
+---
+
+# ORQIVA UI/UX Design Intelligence
+${skillPromptRule}
+`;
+  fs.writeFileSync(claudeSkillFile, claudeSkillDoc, 'utf8');
+  console.log(`  ${color.green}✓ Installed Claude Code Skill:${color.reset} ${path.relative(cwd, claudeSkillFile)}`);
 
   // Windsurf rules
   const windsurfFile = path.join(cwd, '.windsurfrules');

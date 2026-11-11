@@ -17,6 +17,12 @@ export const docPages: DocPage[] = [
 
 ORQIVA UI/UX is an open Agent Skill that equips AI coding agents with senior design intelligence, architectural heuristics, and WCAG 2.2 AA accessibility standards.
 
+### Instant Workspace Installation (ORQIVA CLI)
+\`\`\`bash
+# Auto-configure Claude Code (CLAUDE.md & .claude/skills), Cursor, and Windsurf in one command
+npx orqiva-ui-ux install
+\`\`\`
+
 ### Universal Installation (Open Agent Skills CLI)
 \`\`\`bash
 # Install globally for all supported coding agents
@@ -26,6 +32,8 @@ npx skills add CodeByArnob/orqiva-ui-ux --skill orqiva-ui-ux -g -a '*'
 ### Agent-Specific Installation
 - **Claude Code**:
   \`\`\`bash
+  npx orqiva-ui-ux install
+  # Or via open skills CLI:
   npx skills add CodeByArnob/orqiva-ui-ux --skill orqiva-ui-ux -g -a claude-code
   \`\`\`
 - **Cursor / Windsurf**:
