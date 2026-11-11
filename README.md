@@ -7,6 +7,7 @@
 [![CI & Validation](https://github.com/CodeByArnob/orqiva-ui-ux/actions/workflows/ci.yml/badge.svg)](https://github.com/CodeByArnob/orqiva-ui-ux/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/badge/npm-v1.0.0-cb3837.svg)](https://www.npmjs.com/package/orqiva-ui-ux)
 [![Agent Skills](https://img.shields.io/badge/Spec-Agent%20Skills-sky.svg)](https://mcpservers.org/agent-skills)
+[![MCP Server](https://img.shields.io/badge/MCP-JSON--RPC%202.0-emerald.svg)](mcp/server.js)
 [![WCAG 2.2 AA](https://img.shields.io/badge/Accessibility-WCAG%202.2%20AA-emerald.svg)](references/accessibility.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -14,7 +15,21 @@
 
 Standard AI coding assistants suffer from aesthetic uniformity: they default to identical dark-slate cards, purple/violet linear gradients, frosted glass, and generic buzzwords regardless of whether the user requests a high-compliance banking workflow, a luxury fashion house, or a daily task timetable.
 
-ORQIVA eliminates generic AI output by equipping agents with senior product design heuristics, domain-specific visual directions, zero-dependency token initializers (`npx orqiva-ui-ux init`), and non-negotiable WCAG 2.2 AA accessibility enforcement.
+ORQIVA eliminates generic AI output by equipping agents with senior product design heuristics, domain-specific visual directions, zero-dependency token initializers (`npx orqiva-ui-ux init`), a production JSON-RPC MCP server (`npx orqiva-ui-ux mcp`), and non-negotiable WCAG 2.2 AA accessibility enforcement.
+
+---
+
+## Senior Developer Walkthrough & Workflow
+
+<div align="center">
+  <img src="assets/demo-walkthrough.svg" alt="ORQIVA UI/UX Walkthrough Workflow" width="100%" />
+</div>
+
+Follow the 4-stage engineering lifecycle:
+1. **Initialize Project Stack**: Run `npx orqiva-ui-ux init` to detect framework and inject CSS variables & Tailwind preset.
+2. **Pair with Coding Agent**: Prompt Claude Code, Cursor, Windsurf, or Antigravity with your feature request.
+3. **Multi-Stack Synthesis**: The agent writes production code in React/TSX, Vue, Svelte, Flutter, Compose, or SwiftUI.
+4. **Audit & Verify**: Run `npx orqiva-ui-ux audit` or connect the ORQIVA MCP server for automatic WCAG 2.2 AA verification.
 
 ---
 
@@ -34,7 +49,62 @@ npx orqiva-ui-ux audit
 
 # Install ORQIVA skill into Cursor, Claude Code, and Windsurf
 npx orqiva-ui-ux install
+
+# Launch the production MCP server for Claude Desktop and Cursor
+npx orqiva-ui-ux mcp
 ```
+
+---
+
+## Production Model Context Protocol (MCP) Server
+
+ORQIVA includes a production-ready, zero-dependency MCP server communicating over standard JSON-RPC 2.0 stdio:
+
+### Tools Provided by MCP Server:
+- `orqiva_audit_accessibility`: Deep AST/regex scan for contrast, touch targets, and ARIA labels.
+- `orqiva_contrast_check`: Exact relative luminance calculation (WCAG 2.2 AA & AAA).
+- `orqiva_recommend_archetype`: Cognitive matching of project domain to design archetypes.
+- `orqiva_generate_tokens`: Multi-framework token compiler (Tailwind, CSS, TS, Compose, Flutter, SwiftUI).
+- `orqiva_inspect_component`: Senior architectural component review with refactored code.
+
+### Quick Setup for Claude Desktop (`claude_desktop_config.json`)
+```json
+{
+  "mcpServers": {
+    "orqiva-ui-ux": {
+      "command": "npx",
+      "args": ["-y", "orqiva-ui-ux", "mcp"]
+    }
+  }
+}
+```
+
+### Quick Setup for Cursor (`~/.cursor/mcp.json`)
+```json
+{
+  "mcp": {
+    "servers": {
+      "orqiva-ui-ux": {
+        "command": "npx",
+        "args": ["-y", "orqiva-ui-ux", "mcp"]
+      }
+    }
+  }
+}
+```
+
+---
+
+## Multi-Language Programming Support
+
+ORQIVA natively generates idiomatic, accessible code across modern frontend and mobile platforms:
+- **React / Next.js**: TypeScript, JSX, Tailwind CSS v4, Radix UI.
+- **Vue 3**: Composition API, `<script setup lang="ts">`, Tailwind CSS.
+- **Svelte 5**: Modern Runes `$state`, accessible markup, Tailwind CSS.
+- **Flutter**: Dart `ThemeExtension`, `StatelessWidget`, responsive `LayoutBuilder`.
+- **Android**: Kotlin Jetpack Compose `@Composable`, Material Theme 3.
+- **iOS**: Swift `SwiftUI View`, semantic tokens, safe area insets.
+- **Vanilla Web**: Semantic HTML5, CSS Custom Properties, WCAG contrast.
 
 ---
 
@@ -122,7 +192,10 @@ orqiva-ui-ux/
 ├── .agent-skills/           # Machine-readable discovery manifest
 │   └── manifest.json
 ├── bin/                     # Interactive CLI tool (zero external dependencies)
-│   └── orqiva.js
+│   ├── orqiva.js
+│   └── orqiva-mcp.js
+├── mcp/                     # Production Model Context Protocol (MCP) server
+│   └── server.js
 ├── references/              # Modular design manuals
 │   ├── specialized-archetypes.md # 7 premier UI archetypes & design tokens
 │   ├── design-directions.md # Visual style taxonomy (Trust-Led, Calm, Utilitarian, etc.)
@@ -156,6 +229,7 @@ orqiva-ui-ux/
 │   ├── DesignTokens.kt      # Jetpack Compose Kotlin objects
 │   └── app_theme.dart       # Flutter Theme extensions
 ├── assets/showcase/         # High-resolution showcase assets for the 7 archetypes
+├── assets/demo-walkthrough.svg # Senior developer workflow architecture diagram
 ├── site/                    # Full React + Vite + Tailwind documentation & demo app
 └── scripts/                 # Validation, token compiler, and packaging scripts
 ```

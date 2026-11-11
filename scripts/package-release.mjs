@@ -37,12 +37,14 @@ const skillFilesAndDirs = [
   'LICENSE',
   'CHANGELOG.md',
   'bin',
+  'mcp',
   '.agent-skills',
   'docs',
   'references',
   'workflows',
   'checklists',
   'examples',
+  'assets',
   'tests'
 ];
 

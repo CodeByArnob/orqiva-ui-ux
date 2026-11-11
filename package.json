@@ -6,10 +6,12 @@
   "type": "module",
   "bin": {
     "orqiva-ui-ux": "./bin/orqiva.js",
-    "orqiva": "./bin/orqiva.js"
+    "orqiva": "./bin/orqiva.js",
+    "orqiva-mcp": "./bin/orqiva-mcp.js"
   },
   "files": [
     "bin",
+    "mcp",
     "SKILL.md",
     "references",
     "workflows",
