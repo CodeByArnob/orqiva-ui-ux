@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
   <img src="assets/orqiva-banner.svg" alt="ORQIVA UI/UX Banner" width="100%" />
 </div>
 
@@ -115,37 +115,44 @@ Every interface shown below represents a real production archetype supported by 
 ### 1. Luxury Editorial E-Commerce (AuraGlow Jewelry Atelier)
 *High-fashion luxury commerce with deep obsidian canvas (`#0B0B0D`), champagne gold accents (`#D4AF37`), high-contrast serif typography, asymmetric split-screen hero canvas, and lens-zoom product spotlights.*
 ![AuraGlow Luxury Editorial E-Commerce](assets/showcase/01-auraglow-luxury-jewelry.jpg)
-*Reference guide: [`references/specialized-archetypes.md#1-luxury-editorial-e-commerce`](references/specialized-archetypes.md)*
+
+**Design reference:** [AuraGlow Luxury Jewelry - Archetype #1](references/specialized-archetypes.md#1-luxury-editorial-e-commerce)
 
 ### 2. Cosmic FinTech SaaS Telemetry (OrbitFinance SaaS)
 *Celestial dark-space telemetry portal featuring ambient radial nebulae, glassmorphic overview modules (`backdrop-blur-xl`), neon purple (`#8B5CF6`) and cyan (`#06B6D4`) sparklines, and floating multi-stop gradient cards.*
 ![OrbitFinance Cosmic FinTech SaaS](assets/showcase/02-orbitfinance-cosmic-saas.jpg)
-*Reference guide: [`references/specialized-archetypes.md#2-cosmic-fintech-saas`](references/specialized-archetypes.md)*
+
+**Design reference:** [OrbitFinance Cosmic SaaS - Archetype #2](references/specialized-archetypes.md#2-cosmic-fintech-saas)
 
 ### 3. Liquid Chrome 3-Screen Neo-Banking (NovaBank Mobile)
 *Three-screen continuous mobile banking experience: 3D liquid metallic onboarding splash, high-contrast dashboard with platinum and coral debit cards, and a dedicated 12-key tactile numeric keypad for fast P2P payments.*
 ![NovaBank Liquid Chrome Mobile Banking](assets/showcase/03-novabank-liquid-mobile-banking.jpg)
-*Reference guide: [`references/specialized-archetypes.md#3-liquid-chrome-neo-banking`](references/specialized-archetypes.md)*
+
+**Design reference:** [NovaBank Liquid Mobile Banking - Archetype #3](references/specialized-archetypes.md#3-liquid-chrome-neo-banking)
 
 ### 4. Dark Pulse Personal Metrics (PulseFocus Productivity)
 *Dark-mode personal productivity suite featuring a segmented mode switcher, circular SVG goal-completion ring (`3/5 tasks`), 7-day velocity bar metrics, and a floating dock navigation bar with quick-add actions.*
 ![PulseFocus Dark Productivity Suite](assets/showcase/04-pulsefocus-dark-productivity.jpg)
-*Reference guide: [`references/specialized-archetypes.md#4-dark-pulse-productivity`](references/specialized-archetypes.md)*
+
+**Design reference:** [PulseFocus Dark Productivity - Archetype #4](references/specialized-archetypes.md#4-dark-pulse-productivity)
 
 ### 5. Timetable Calendar & Execution Stopwatch (ChronoTask Mobile Suite)
 *End-to-end task execution suite: daily progress banner (`2/7 complete`), horizontal date scrubber with active day pill, chronological hourly calendar with real-time cursor needle, and interactive checklist with integrated stopwatch.*
 ![ChronoTask Mobile Timetable Suite](assets/showcase/05-chronotask-mobile-timetable.jpg)
-*Reference guide: [`references/specialized-archetypes.md#5-chronotask-mobile-suite`](references/specialized-archetypes.md)*
+
+**Design reference:** [ChronoTask Mobile Suite - Archetype #5](references/specialized-archetypes.md#5-chronotask-mobile-suite)
 
 ### 6. Neumorphic Dark Workspace Tasks (Synthetix Workspace)
 *Enterprise workspace productivity suite featuring layered soft-elevation dark cards, team absence and vacation calendar grids, announcement modules, and an hourly resource allocation report.*
 ![Synthetix Workspace Tasks](assets/showcase/06-synthetix-workspace-tasks.jpg)
-*Reference guide: [`references/specialized-archetypes.md#6-synthetix-workspace-tasks`](references/specialized-archetypes.md)*
+
+**Design reference:** [Synthetix Workspace Tasks - Archetype #6](references/specialized-archetypes.md#6-synthetix-workspace-tasks)
 
 ### 7. Dual Mint Cards & Donut Spending Analytics (Veritas Wealth & Banking)
 *Sophisticated wealth hub featuring dual floating mint and cyan debit cards with contactless chip graphics, quick utility action buttons, and a 6-segment spending breakdown donut chart with category legends.*
 ![Veritas Wealth & Donut Spending Analytics](assets/showcase/07-veritas-wealth-spending.jpg)
-*Reference guide: [`references/specialized-archetypes.md#7-veritas-wealth-banking`](references/specialized-archetypes.md)*
+
+**Design reference:** [Veritas Wealth & Banking - Archetype #7](references/specialized-archetypes.md#7-veritas-wealth-banking)
 
 ---
 

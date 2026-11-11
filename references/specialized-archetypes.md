@@ -16,6 +16,7 @@ This reference module establishes precise visual tokens, structural layout rules
 
 ---
 
+<a id="1-luxury-editorial-e-commerce"></a>
 ## 1. Luxury Editorial E-Commerce (AuraGlow Jewelry Atelier)
 
 ### Target Domains
@@ -50,6 +51,7 @@ High-end jewelry, luxury fashion, horology, bespoke fragrances, art auctions, pr
 
 ---
 
+<a id="2-cosmic-fintech-saas"></a>
 ## 2. Cosmic FinTech SaaS (OrbitFinance SaaS Telemetry)
 
 ### Target Domains
@@ -83,6 +85,7 @@ Modern developer platforms, AI infrastructure, cosmic financial telemetry, crypt
 
 ---
 
+<a id="3-liquid-chrome-neo-banking"></a>
 ## 3. Liquid Chrome Neo-Banking (NovaBank 3-Screen Mobile)
 
 ### Target Domains
@@ -121,6 +124,7 @@ Consumer neo-banking, multi-currency wallets, instant peer-to-peer transfers, Ge
 
 ---
 
+<a id="4-dark-pulse-productivity"></a>
 ## 4. Dark Pulse Productivity (PulseFocus Personal Metrics)
 
 ### Target Domains
@@ -148,6 +152,7 @@ Habit tracking, deep-work timers, personal OKRs, fitness analytics, sprint goal 
 
 ---
 
+<a id="5-chronotask-mobile-suite"></a>
 ## 5. ChronoTask Mobile Suite (ChronoTask Timetable & Stopwatch)
 
 ### Target Domains
@@ -184,6 +189,7 @@ Agile task management, daily scheduling, agency project tracking, time-blocking 
 
 ---
 
+<a id="6-synthetix-workspace-tasks"></a>
 ## 6. Synthetix Workspace Tasks (Synthetix Workspace & Absence)
 
 ### Target Domains
@@ -210,6 +216,7 @@ Enterprise team productivity, remote work hubs, attendance management, resource 
 
 ---
 
+<a id="7-veritas-wealth-banking"></a>
 ## 7. Veritas Wealth & Banking (Veritas Dual-Card & Donut Analytics)
 
 ### Target Domains
