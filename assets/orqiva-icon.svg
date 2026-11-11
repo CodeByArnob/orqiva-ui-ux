@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="50%" stop-color="#090d1a" />
+      <stop offset="100%" stop-color="#050814" />
+    </linearGradient>
+
+    <!-- Border Ring Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <!-- Core Brand Gradient -->
+    <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="60%" stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#0ea5e9" />
+    </linearGradient>
+
+    <!-- Ambient Glow -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35" />
+      <stop offset="70%" stop-color="#2dd4bf" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#020617" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Specular Highlight -->
+    <linearGradient id="specular" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Glow Drop -->
+  <rect x="12" y="12" width="104" height="104" rx="28" fill="url(#glow)" />
+
+  <!-- Main Base Squircle -->
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="2.5" />
+
+  <!-- Top Specular Highlight Edge -->
+  <rect x="9.5" y="9.5" width="109" height="54" rx="26" fill="url(#specular)" />
+
+  <!-- Subtle Concentric Telemetry Orbit Ring -->
+  <circle cx="64" cy="64" r="38" fill="none" stroke="#38bdf8" stroke-width="1.2" stroke-opacity="0.25" stroke-dasharray="3 3" />
+  <circle cx="64" cy="64" r="28" fill="none" stroke="#2dd4bf" stroke-width="1" stroke-opacity="0.3" />
+
+  <!-- High-Precision Geometric 'O' Aperture Glyph -->
+  <path d="M 64 32
+           C 81.67 32 96 46.33 96 64
+           C 96 81.67 81.67 96 64 96
+           C 46.33 96 32 81.67 32 64
+           C 32 46.33 46.33 32 64 32 Z
+           M 64 45
+           C 53.51 45 45 53.51 45 64
+           C 45 74.49 53.51 83 64 83
+           C 74.49 83 83 74.49 83 64
+           C 83 53.51 74.49 45 64 45 Z"
+        fill="url(#coreGrad)" />
+
+  <!-- Center Telemetry Pulse Core -->
+  <circle cx="64" cy="64" r="5" fill="#38bdf8" />
+  <circle cx="64" cy="64" r="2" fill="#ffffff" />
+
+  <!-- Orbiting Data Nodes -->
+  <circle cx="91" cy="48" r="2.5" fill="#2dd4bf" />
+  <circle cx="37" cy="80" r="2" fill="#38bdf8" opacity="0.8" />
+</svg>
