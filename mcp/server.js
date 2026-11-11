@@ -301,8 +301,10 @@ function getLuminance(r, g, b) {
 
 // Tool Implementation : Contrast Check
 function handleContrastCheck(args) {
-  const fg = parseHex(args.fgColor);
-  const bg = parseHex(args.bgColor);
+  const fgRaw = args.fgColor || args.foreground || args.fg || '#FFFFFF';
+  const bgRaw = args.bgColor || args.background || args.bg || '#000000';
+  const fg = parseHex(fgRaw);
+  const bg = parseHex(bgRaw);
   const l1 = getLuminance(fg.r, fg.g, fg.b);
   const l2 = getLuminance(bg.r, bg.g, bg.b);
   const ratio = (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
@@ -314,8 +316,8 @@ function handleContrastCheck(args) {
   const passUI = ratio >= 3.0;
 
   const result = {
-    foreground: args.fgColor,
-    background: args.bgColor,
+    foreground: fgRaw,
+    background: bgRaw,
     contrastRatio: `${formattedRatio}:1`,
     wcag_2_2_compliance: {
       normalTextAA_4_5_to_1: ratio >= 4.5 ? 'PASS' : 'FAIL',
