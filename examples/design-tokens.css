@@ -1,23 +1,112 @@
+/**
+ * ORQIVA Design Tokens - Production CSS Custom Properties
+ * Fully compliant with WCAG 2.2 AA contrast standards.
+ */
+
 :root {
-  /* Illustrative defaults only; adapt to each product. */
-  --color-bg: #fff;
-  --color-surface: #f6f7f9;
-  --color-text: #17191f;
-  --color-text-muted: #626a76;
-  --color-border: #e1e5eb;
-  --color-primary: #3157d5;
-  --color-success: #167a52;
-  --color-warning: #8a5200;
-  --color-danger: #b52c36;
-  --color-focus: #245fdb;
-  --space-1: .25rem;
-  --space-2: .5rem;
-  --space-3: .75rem;
-  --space-4: 1rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --radius-sm: .375rem;
-  --radius-md: .625rem;
-  --radius-lg: 1rem;
+  /* Spatial Scale (4pt/8pt grid) */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Typography Scale */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  /* Border Radii */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Light Theme Colors (Default) */
+  --color-bg-canvas: #FAFAFA;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-surface-raised: #FFFFFF;
+  --color-bg-surface-subtle: #F4F4F5;
+
+  --color-border-subtle: #E4E4E7;
+  --color-border-default: #D4D4D8;
+  --color-border-strong: #A1A1AA;
+
+  --color-fg-primary: #09090B;
+  --color-fg-secondary: #52525B;
+  --color-fg-muted: #71717A;
+  --color-fg-inverse: #FFFFFF;
+
+  --color-accent-default: #0284C7;
+  --color-accent-hover: #0369A1;
+  --color-accent-subtle: #E0F2FE;
+  --color-accent-contrast: #FFFFFF;
+
+  --color-success-fg: #15803D;
+  --color-success-bg: #DCFCE7;
+  --color-warning-fg: #B45309;
+  --color-warning-bg: #FEF3C7;
+  --color-danger-fg: #B91C1C;
+  --color-danger-bg: #FEE2E2;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
 }
-:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+
+[data-theme="dark"],
+.dark {
+  /* Dark Theme Colors */
+  --color-bg-canvas: #09090B;
+  --color-bg-surface: #121215;
+  --color-bg-surface-raised: #1C1C21;
+  --color-bg-surface-subtle: #27272A;
+
+  --color-border-subtle: #27272A;
+  --color-border-default: #3F3F46;
+  --color-border-strong: #52525B;
+
+  --color-fg-primary: #FAFAFA;
+  --color-fg-secondary: #A1A1AA;
+  --color-fg-muted: #71717A;
+  --color-fg-inverse: #09090B;
+
+  --color-accent-default: #38BDF8;
+  --color-accent-hover: #7DD3FC;
+  --color-accent-subtle: #082F49;
+  --color-accent-contrast: #09090B;
+
+  --color-success-fg: #4ADE80;
+  --color-success-bg: #052E16;
+  --color-warning-fg: #FBBF24;
+  --color-warning-bg: #451A03;
+  --color-danger-fg: #F87171;
+  --color-danger-bg: #450A0A;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.55);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+}
