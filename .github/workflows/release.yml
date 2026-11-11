@@ -1,0 +1,62 @@
+name: Release Package & Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Release Tag (e.g. v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Package Release & Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: 'site/package.json'
+
+      - name: Install Site Dependencies
+        run: |
+          cd site
+          npm ci
+
+      - name: Run Full Validation
+        run: node scripts/validate.mjs
+
+      - name: Build Documentation Site
+        env:
+          VITE_BASE_PATH: '/orqiva-ui-ux/'
+        run: |
+          cd site
+          npm run build
+
+      - name: Package Release Bundles & Checksums
+        run: node scripts/package-release.mjs
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.tag_name || github.ref_name }}
+          name: ORQIVA UI/UX ${{ github.event.inputs.tag_name || github.ref_name }}
+          body_path: dist/RELEASE_NOTES.md
+          files: |
+            dist/orqiva-ui-ux-*.zip
+            dist/orqiva-docs-website-*.zip
+            dist/orqiva-ui-ux-source-*.tar.gz
+            dist/checksums.sha256
+          draft: false
+          prerelease: false
