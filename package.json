@@ -1,0 +1,35 @@
+{
+  "name": "orqiva-ui-ux",
+  "version": "1.0.0",
+  "description": "Adaptive UI/UX Design Intelligence for AI Coding Agents and Production Interfaces",
+  "main": "SKILL.md",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "test": "node scripts/validate.mjs",
+    "build:site": "cd site && npm run build",
+    "capture": "node scripts/capture-screenshots.mjs",
+    "package": "node scripts/package-release.mjs",
+    "build": "npm run validate && npm run build:site && npm run capture && npm run build:site && npm run package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeByArnob/orqiva-ui-ux.git"
+  },
+  "keywords": [
+    "agent-skills",
+    "ui-ux",
+    "design-system",
+    "claude-code",
+    "cursor",
+    "antigravity",
+    "wcag-aa",
+    "adaptive-design",
+    "tailwind"
+  ],
+  "author": "ORQIVA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodeByArnob/orqiva-ui-ux/issues"
+  },
+  "homepage": "https://codebyarnob.github.io/orqiva-ui-ux/"
+}

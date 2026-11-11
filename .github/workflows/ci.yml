@@ -1,0 +1,38 @@
+name: CI & Quality Validation
+
+on:
+  push:
+    branches: [main, 'feature/**', 'release/**']
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Skill & Asset Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: 'site/package.json'
+
+      - name: Install Site Dependencies
+        run: |
+          cd site
+          npm ci
+
+      - name: Run Skill & Link Integrity Checks
+        run: node scripts/validate.mjs
+
+      - name: Build Documentation & Showcase Site
+        run: |
+          cd site
+          npm run build
