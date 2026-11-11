@@ -51,9 +51,11 @@ export function App() {
             onClick={() => setActiveTab('home')}
             className="flex items-center space-x-3 group text-left"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-teal-400 flex items-center justify-center font-extrabold text-slate-950 shadow-md group-hover:scale-105 transition-transform">
-              O
-            </div>
+            <img 
+              src="./favicon.svg" 
+              alt="ORQIVA Icon" 
+              className="w-9 h-9 rounded-xl shadow-md group-hover:scale-105 transition-transform shrink-0" 
+            />
             <div>
               <div className="text-sm font-bold tracking-tight text-white flex items-center space-x-1.5">
                 <span>ORQIVA</span>
@@ -192,9 +194,11 @@ export function App() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-3">
             <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 rounded-lg bg-sky-500 text-slate-950 flex items-center justify-center font-bold text-xs">
-                O
-              </div>
+              <img 
+                src="./favicon.svg" 
+                alt="ORQIVA Icon" 
+                className="w-6 h-6 rounded-lg shrink-0" 
+              />
               <span className="font-bold text-white tracking-tight">ORQIVA UI/UX</span>
             </div>
             <p className="text-slate-500 text-[11px] leading-relaxed">
