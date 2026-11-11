@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   BookOpen, Search, ChevronRight, Copy, Check, ArrowRight, ArrowLeft, 
-  ExternalLink, Hash, Bookmark, ShieldCheck, Sparkles
+  ExternalLink, Hash, Bookmark, ShieldCheck, Sparkles, Menu, X
 } from 'lucide-react';
 import { docPages, DocPage } from '../data/docsContent';
 
@@ -9,6 +9,7 @@ export const DocsView: React.FC = () => {
   const [selectedPageId, setSelectedPageId] = useState<string>('quickstart');
   const [searchQuery, setSearchQuery] = useState('');
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const categories = ['Getting Started', 'Workflows', 'Reference Library', 'Checklists', 'Governance'] as const;
 
@@ -29,11 +30,43 @@ export const DocsView: React.FC = () => {
     setTimeout(() => setCopiedCode(null), 2000);
   };
 
+  const handleSelectPage = (id: string) => {
+    setSelectedPageId(id);
+    setMobileNavOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      {/* Mobile Topic Selector Bar (Hidden on md: and up) */}
+      <div className="md:hidden mb-6 p-3.5 bg-slate-900 border border-slate-800 rounded-2xl flex items-center justify-between shadow-lg">
+        <div className="flex items-center space-x-2.5 min-w-0 pr-3">
+          <div className="w-7 h-7 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center shrink-0">
+            <BookOpen className="w-3.5 h-3.5" />
+          </div>
+          <div className="min-w-0">
+            <div className="text-[10px] font-mono uppercase tracking-wider text-slate-500">Topic</div>
+            <div className="text-xs font-bold text-white truncate">{currentPage.title}</div>
+          </div>
+        </div>
+        <button
+          onClick={() => setMobileNavOpen(!mobileNavOpen)}
+          className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-400 text-xs font-semibold flex items-center space-x-1.5 border border-slate-700 transition-colors shrink-0"
+          aria-expanded={mobileNavOpen}
+        >
+          {mobileNavOpen ? <X className="w-3.5 h-3.5" /> : <Menu className="w-3.5 h-3.5" />}
+          <span>{mobileNavOpen ? 'Close' : 'Browse Topics'}</span>
+        </button>
+      </div>
+
+      {/* Main Responsive Flex Layout: Side-by-Side on md/lg, Stacked cleanly on mobile */}
+      <div className="flex flex-col md:flex-row gap-6 lg:gap-8 items-start">
         {/* Left: Docs Navigation Sidebar */}
-        <div className="lg:col-span-3 bg-slate-900/60 border border-slate-800 rounded-2xl p-4 sticky top-24 max-h-[85vh] overflow-y-auto">
+        <aside 
+          className={`${
+            mobileNavOpen ? 'block mb-6' : 'hidden'
+          } md:block w-full md:w-64 lg:w-72 shrink-0 bg-slate-900 border border-slate-800 rounded-2xl p-4 md:sticky md:top-24 max-h-none md:max-h-[calc(100vh-8rem)] overflow-y-auto shadow-xl`}
+        >
           {/* Search Box */}
           <div className="relative mb-4">
             <Search className="w-4 h-4 absolute left-3 top-2.5 text-slate-500" />
@@ -61,7 +94,7 @@ export const DocsView: React.FC = () => {
                     {pagesInCat.map(page => (
                       <button
                         key={page.id}
-                        onClick={() => setSelectedPageId(page.id)}
+                        onClick={() => handleSelectPage(page.id)}
                         className={`w-full text-left px-3 py-2 rounded-xl text-xs transition-colors flex items-center justify-between ${
                           selectedPageId === page.id 
                             ? 'bg-sky-500/10 text-sky-400 font-semibold border border-sky-500/20' 
@@ -77,10 +110,10 @@ export const DocsView: React.FC = () => {
               );
             })}
           </div>
-        </div>
+        </aside>
 
         {/* Right: Active Document Content Canvas */}
-        <div className="lg:col-span-9 bg-slate-900/40 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-xl">
+        <main className="w-full flex-1 min-w-0 bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-xl">
           {/* Breadcrumb Header */}
           <div className="flex items-center space-x-2 text-xs font-mono text-slate-500 mb-4 pb-3 border-b border-slate-800">
             <span>Docs</span>
@@ -179,7 +212,7 @@ export const DocsView: React.FC = () => {
           <div className="mt-12 pt-6 border-t border-slate-800 flex justify-between items-center text-xs">
             {prevPage ? (
               <button 
-                onClick={() => setSelectedPageId(prevPage.id)}
+                onClick={() => handleSelectPage(prevPage.id)}
                 className="flex items-center space-x-2 text-slate-400 hover:text-white px-3 py-2 rounded-xl hover:bg-slate-800/60 transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -189,7 +222,7 @@ export const DocsView: React.FC = () => {
 
             {nextPage ? (
               <button 
-                onClick={() => setSelectedPageId(nextPage.id)}
+                onClick={() => handleSelectPage(nextPage.id)}
                 className="flex items-center space-x-2 text-sky-400 hover:text-sky-300 px-3 py-2 rounded-xl hover:bg-slate-800/60 transition-colors"
               >
                 <span>Next: {nextPage.title}</span>
@@ -197,7 +230,7 @@ export const DocsView: React.FC = () => {
               </button>
             ) : <div></div>}
           </div>
-        </div>
+        </main>
       </div>
     </div>
   );
