@@ -5,114 +5,112 @@
 # ORQIVA UI/UX : Adaptive Design Intelligence
 
 [![CI & Validation](https://github.com/CodeByArnob/orqiva-ui-ux/actions/workflows/ci.yml/badge.svg)](https://github.com/CodeByArnob/orqiva-ui-ux/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![npm version](https://img.shields.io/badge/npm-v1.0.0-cb3837.svg)](https://www.npmjs.com/package/orqiva-ui-ux)
+[![Agent Skills](https://img.shields.io/badge/Spec-Agent%20Skills-sky.svg)](https://mcpservers.org/agent-skills)
 [![WCAG 2.2 AA](https://img.shields.io/badge/Accessibility-WCAG%202.2%20AA-emerald.svg)](references/accessibility.md)
-[![Agent Skills](https://img.shields.io/badge/Compatibility-Agent%20Skills-sky.svg)](https://github.com/agent-skills/skills)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**ORQIVA UI/UX** is an open-source, production-ready **Adaptive Design Intelligence** ecosystem for AI coding agents and frontend software engineers.
+**ORQIVA UI/UX** is a production-ready **Adaptive Design Intelligence** ecosystem for AI coding agents and frontend software engineers.
 
-Standard AI coding assistants suffer from aesthetic uniformity: they default to identical dark-slate cards, purple/violet linear gradients, frosted glass, and generic buzzwords regardless of whether the user requests a high-compliance banking workflow, a developer terminal, or a clinical EHR portal.
+Standard AI coding assistants suffer from aesthetic uniformity: they default to identical dark-slate cards, purple/violet linear gradients, frosted glass, and generic buzzwords regardless of whether the user requests a high-compliance banking workflow, a luxury fashion house, or a daily task timetable.
 
-ORQIVA eliminates generic AI output by equipping agents with senior product design heuristics, domain-specific visual directions, multi-framework design token synthesis, and non-negotiable WCAG 2.2 AA accessibility enforcement.
-
----
-
-## Live Showcase & Real Interface Screenshots
-
-Every screenshot below is captured via automated headless browser from a real, interactive React implementation included in this repository. **No stock photography, no AI image hallucinations, zero fabricated mockups.**
-
-### 1. Premium Mobile Banking (Trust-Led Direction)
-*ApexBank mobile interface featuring biometric authentication, virtual debit card freeze toggle, real-time categorized transaction ledger, and two-step transfer modal.*
-![Mobile Banking Interface](assets/screenshots/01-mobile-banking.png)
-*(Mobile viewport reflow: [`assets/screenshots/01-mobile-banking-mobile.png`](assets/screenshots/01-mobile-banking-mobile.png))*
-
-### 2. SaaS Telemetry & Health Dashboard (Utilitarian Data-Dense)
-*CloudScale cluster monitor with P99 latency distribution sparklines, telemetry cards, and interactive filterable service table.*
-![SaaS Telemetry Dashboard](assets/screenshots/02-saas-dashboard.png)
-*(Mobile viewport reflow: [`assets/screenshots/02-saas-dashboard-mobile.png`](assets/screenshots/02-saas-dashboard-mobile.png))*
-
-### 3. Luxury E-Commerce Storefront (Conversion-Led Commerce)
-*Nordic Atelier chronograph watch customizer with dynamic case finish selector, strap width sizing, and slide-out cart drawer with free shipping threshold progress.*
-![E-Commerce Storefront](assets/screenshots/03-ecommerce.png)
-*(Mobile viewport reflow: [`assets/screenshots/03-ecommerce-mobile.png`](assets/screenshots/03-ecommerce-mobile.png))*
-
-### 4. Clinical Healthcare Records & Vitals (Calm Human-Centered)
-*AuraCare clinical EHR with real-time patient bedside telemetry (ECG/pulse, blood pressure, SpO2, core temp), critical allergy alerts, and medication administration regimen.*
-![Healthcare Clinical Interface](assets/screenshots/04-healthcare.png)
-*(Mobile viewport reflow: [`assets/screenshots/04-healthcare-mobile.png`](assets/screenshots/04-healthcare-mobile.png))*
-
-### 5. Developer Workspace IDE (Utilitarian DevTools)
-*Nexus Studio with multi-file project explorer, syntax-highlighted TypeScript editor, git branch status, and live daemon terminal output stream.*
-![Developer Workspace IDE](assets/screenshots/05-developer-workspace.png)
-
-### 6. Responsive Marketing Portal (Modern Minimal Editorial)
-*ORQIVA platform landing page featuring conversion hero anatomy, one-click install snippet, and interactive FAQ accordion.*
-![Responsive Marketing Portal](assets/screenshots/06-responsive-website.png)
-
-### 7. Before-and-After Heuristic Redesign Case Study
-*Direct comparative transformation of a cluttered, low-contrast, inaccessible legacy billing table into an accessible card-reflow architecture.*
-![Before & After Redesign Demonstration](assets/screenshots/07-before-after-redesign.png)
-
-### 8. Desktop vs. Mobile Responsive Reflow Comparison
-*Simultaneous side-by-side view demonstrating ergonomic thumb-zone adaptation, 48px touch targets, and mobile sheet transformation.*
-![Responsive Viewport Comparison](assets/screenshots/08-responsive-comparison.png)
-
-*Full catalog and SHA256 hashes available in [assets/screenshots/README.md](assets/screenshots/README.md).*
+ORQIVA eliminates generic AI output by equipping agents with senior product design heuristics, domain-specific visual directions, zero-dependency token initializers (`npx orqiva-ui-ux init`), and non-negotiable WCAG 2.2 AA accessibility enforcement.
 
 ---
 
-## Installation
+## Zero-Setup Quickstart: Interactive Initializer CLI
 
-ORQIVA adheres strictly to the open [Agent Skills specification](https://github.com/agent-skills/skills) and installs across all compatible coding assistants.
+Generate tailored design tokens and Tailwind presets in your project in seconds:
 
-### Universal Installation (Recommended)
 ```bash
-npx skills add CodeByArnob/orqiva-ui-ux --skill orqiva-ui-ux -g -a '*'
+# Launch the interactive design system wizard
+npx orqiva-ui-ux init
+
+# Or run non-interactively with smart defaults
+npx orqiva-ui-ux init --yes
+
+# Audit your project code for accessibility and contrast violations
+npx orqiva-ui-ux audit
+
+# Install ORQIVA skill into Cursor, Claude Code, and Windsurf
+npx orqiva-ui-ux install
 ```
 
-### Agent-Specific Installation
-- **Claude Code**:
-  ```bash
-  npx skills add CodeByArnob/orqiva-ui-ux --skill orqiva-ui-ux -g -a claude-code
-  ```
-- **Cursor / Windsurf**:
-  Clone the repository into your workspace's `.skills/` directory or global skills folder:
-  ```bash
-  git clone https://github.com/CodeByArnob/orqiva-ui-ux.git .skills/orqiva-ui-ux
-  ```
-- **Gemini CLI / Antigravity**:
-  Place into your local customizations skills directory:
-  ```bash
-  git clone https://github.com/CodeByArnob/orqiva-ui-ux.git ~/.gemini/antigravity/builtin/skills/orqiva-ui-ux
-  ```
+---
+
+## Real Application Showcase & Design Archetypes
+
+Every interface shown below represents a real production archetype supported by ORQIVA. The skill understands the domain, spatial hierarchy, typography pairing, and contrast requirements for each design direction:
+
+### 1. Luxury Editorial E-Commerce (AuraGlow Jewelry Atelier)
+*High-fashion luxury commerce with deep obsidian canvas (`#0B0B0D`), champagne gold accents (`#D4AF37`), high-contrast serif typography, asymmetric split-screen hero canvas, and lens-zoom product spotlights.*
+![AuraGlow Luxury Editorial E-Commerce](assets/showcase/01-auraglow-luxury-jewelry.jpg)
+*Reference guide: [`references/specialized-archetypes.md#1-luxury-editorial-e-commerce`](references/specialized-archetypes.md)*
+
+### 2. Cosmic FinTech SaaS Telemetry (OrbitFinance SaaS)
+*Celestial dark-space telemetry portal featuring ambient radial nebulae, glassmorphic overview modules (`backdrop-blur-xl`), neon purple (`#8B5CF6`) and cyan (`#06B6D4`) sparklines, and floating multi-stop gradient cards.*
+![OrbitFinance Cosmic FinTech SaaS](assets/showcase/02-orbitfinance-cosmic-saas.jpg)
+*Reference guide: [`references/specialized-archetypes.md#2-cosmic-fintech-saas`](references/specialized-archetypes.md)*
+
+### 3. Liquid Chrome 3-Screen Neo-Banking (NovaBank Mobile)
+*Three-screen continuous mobile banking experience: 3D liquid metallic onboarding splash, high-contrast dashboard with platinum and coral debit cards, and a dedicated 12-key tactile numeric keypad for fast P2P payments.*
+![NovaBank Liquid Chrome Mobile Banking](assets/showcase/03-novabank-liquid-mobile-banking.jpg)
+*Reference guide: [`references/specialized-archetypes.md#3-liquid-chrome-neo-banking`](references/specialized-archetypes.md)*
+
+### 4. Dark Pulse Personal Metrics (PulseFocus Productivity)
+*Dark-mode personal productivity suite featuring a segmented mode switcher, circular SVG goal-completion ring (`3/5 tasks`), 7-day velocity bar metrics, and a floating dock navigation bar with quick-add actions.*
+![PulseFocus Dark Productivity Suite](assets/showcase/04-pulsefocus-dark-productivity.jpg)
+*Reference guide: [`references/specialized-archetypes.md#4-dark-pulse-productivity`](references/specialized-archetypes.md)*
+
+### 5. Timetable Calendar & Execution Stopwatch (ChronoTask Mobile Suite)
+*End-to-end task execution suite: daily progress banner (`2/7 complete`), horizontal date scrubber with active day pill, chronological hourly calendar with real-time cursor needle, and interactive checklist with integrated stopwatch.*
+![ChronoTask Mobile Timetable Suite](assets/showcase/05-chronotask-mobile-timetable.jpg)
+*Reference guide: [`references/specialized-archetypes.md#5-chronotask-mobile-suite`](references/specialized-archetypes.md)*
+
+### 6. Neumorphic Dark Workspace Tasks (Synthetix Workspace)
+*Enterprise workspace productivity suite featuring layered soft-elevation dark cards, team absence and vacation calendar grids, announcement modules, and an hourly resource allocation report.*
+![Synthetix Workspace Tasks](assets/showcase/06-synthetix-workspace-tasks.jpg)
+*Reference guide: [`references/specialized-archetypes.md#6-synthetix-workspace-tasks`](references/specialized-archetypes.md)*
+
+### 7. Dual Mint Cards & Donut Spending Analytics (Veritas Wealth & Banking)
+*Sophisticated wealth hub featuring dual floating mint and cyan debit cards with contactless chip graphics, quick utility action buttons, and a 6-segment spending breakdown donut chart with category legends.*
+![Veritas Wealth & Donut Spending Analytics](assets/showcase/07-veritas-wealth-spending.jpg)
+*Reference guide: [`references/specialized-archetypes.md#7-veritas-wealth-banking`](references/specialized-archetypes.md)*
+
+---
+
+## Agent Skills Specification Compatibility
+
+ORQIVA conforms to the open [Agent Skills Specification](https://mcpservers.org/agent-skills). For architectural details, discovery protocols, and Awesome lists submission blurbs, see:
+* [Agent Skills Specification Guide](docs/AGENT_SKILLS_SPEC.md)
+* [Awesome Community Submission Templates](docs/AWESOME_COMMUNITY_SUBMISSIONS.md)
+* [Machine-Readable Manifest](.agent-skills/manifest.json)
+
+### Supported AI Coding Assistants
+
+| Coding Agent | Integration Mode | Configuration Command |
+|---|---|---|
+| **Claude Code** | Global or Project Skill | `npx orqiva-ui-ux install --agent claude` |
+| **Google Antigravity** | Workspace / Custom Skill | `npx orqiva-ui-ux install --agent antigravity` |
+| **Cursor** | Cursor Rules (.mdc) | `npx orqiva-ui-ux install --agent cursor` |
+| **Windsurf** | Workspace Rules | `npx orqiva-ui-ux install --agent windsurf` |
+| **Roo Code / Cline** | Custom Prompt Profiles | Included in `SKILL.md` |
+| **Gemini CLI** | CLI Skill Definition | Direct import |
 
 ---
 
 ## Usage Examples
 
-Once installed, your AI coding agent automatically discovers ORQIVA when handling UI, styling, or architecture prompts. You can also explicitly trigger it:
+Once installed, your AI coding agent automatically discovers ORQIVA when handling UI, styling, or architecture prompts:
 
-### New Application Design
-> "Use ORQIVA to design and implement an account overview and fund transfer flow for a retail banking app. Optimize for 390px mobile viewports with WCAG 2.2 AA contrast."
+### Luxury E-Commerce Atelier
+> "Use ORQIVA to design an asymmetric editorial product page for a high-jewelry collection. Apply the AuraGlow dark obsidian and champagne gold palette with Cormorant Garamond serif headers."
 
-### Legacy UI Redesign & Accessibility Audit
-> "Using ORQIVA's redesign workflow, refactor this cluttered patient records table. Ensure table rows reflow to cards on mobile, touch targets meet 48px, and keyboard focus rings are visible."
+### Neo-Banking Mobile Flow
+> "Implement a 3-screen mobile banking flow using ORQIVA's NovaBank archetype. Include a liquid chrome splash, dual card balance overview, and a 12-key tactile transfer keypad with WCAG 2.2 AA contrast."
 
-### SaaS Dashboard Implementation
-> "Implement a real-time observability dashboard using ORQIVA's utilitarian data-dense direction. Include P99 latency sparklines, a searchable service health table, and status badges."
-
----
-
-## Supported Platforms & Coding Environments
-
-| Environment | Integration Mode | Verified Capabilities |
-|---|---|---|
-| **Claude Code** | Global CLI Agent Skill | Full workflow & progressive reference loading |
-| **Cursor** | Workspace Skill / Rules | Token synthesis, React/Tailwind implementation |
-| **Windsurf** | Cascade Skill | Multi-framework support, responsive reflow |
-| **Antigravity** | Built-in / Custom Skill | End-to-end design, audit, and verification |
-| **Roo Code** | VSCode Agent System | Design systems and accessibility audits |
-| **Gemini CLI** | CLI Customization | Design brief formulation and heuristic reviews |
+### SaaS Observability Console
+> "Design a cosmic telemetry dashboard following ORQIVA's OrbitFinance direction. Include real-time neon sparklines, glassmorphic metric cards, and tabular monospace readouts."
 
 ---
 
@@ -121,7 +119,12 @@ Once installed, your AI coding agent automatically discovers ORQIVA when handlin
 ```
 orqiva-ui-ux/
 ├── SKILL.md                 # Agent Skill entrypoint with progressive loader
+├── .agent-skills/           # Machine-readable discovery manifest
+│   └── manifest.json
+├── bin/                     # Interactive CLI tool (zero external dependencies)
+│   └── orqiva.js
 ├── references/              # Modular design manuals
+│   ├── specialized-archetypes.md # 7 premier UI archetypes & design tokens
 │   ├── design-directions.md # Visual style taxonomy (Trust-Led, Calm, Utilitarian, etc.)
 │   ├── ux-architecture.md   # Information architecture, hierarchy, density tiers
 │   ├── visual-foundations.md# 4pt/8pt spatial scale, typographic rhythm, semantic tokens
@@ -145,30 +148,17 @@ orqiva-ui-ux/
 │   ├── responsive.md        # Responsive reflow and overflow checklist
 │   ├── website.md           # Marketing landing checklist
 │   └── design-system.md     # Component library and token checklist
-├── examples/                # Production templates and design tokens
-│   ├── design-tokens.css    # Standard semantic CSS custom properties
+├── examples/                # Multi-framework token packages
+│   ├── tokens.json          # Single source of truth design tokens
+│   ├── design-tokens.css    # CSS custom properties
 │   ├── design-tokens.tailwind.js # Tailwind CSS configuration integration
-│   ├── design-brief-template.md  # Architectural specification template
-│   └── accessibility-audit-report-template.md # A11y report template
+│   ├── tokens.ts            # TypeScript typed tokens
+│   ├── DesignTokens.kt      # Jetpack Compose Kotlin objects
+│   └── app_theme.dart       # Flutter Theme extensions
+├── assets/showcase/         # High-resolution showcase assets for the 7 archetypes
 ├── site/                    # Full React + Vite + Tailwind documentation & demo app
-│   ├── src/components/showcase/ # Real working code for all 8 demonstration interfaces
-│   └── src/components/DocsView.tsx # Complete offline-capable documentation reader
-├── assets/screenshots/      # High-DPI genuine screenshots captured from running code
-├── scripts/                 # Validation, screenshot capture, and packaging scripts
-└── .github/                 # CI/CD workflows, release automation, issue/PR templates
+└── scripts/                 # Validation, token compiler, and packaging scripts
 ```
-
----
-
-## Release System & Downloads
-
-Official releases are cryptographically signed with SHA-256 checksums and include three distribution packages:
-
-1. **`orqiva-ui-ux-v1.0.0.zip`**: The portable Agent Skill distribution package for direct installation into any AI coding environment.
-2. **`orqiva-docs-website-v1.0.0.zip`**: Complete offline static build of the documentation website and showcase application.
-3. **`orqiva-ui-ux-source-v1.0.0.tar.gz`**: Full source repository archive.
-
-Download the latest verified assets from the [Official GitHub Releases Page](https://github.com/CodeByArnob/orqiva-ui-ux/releases).
 
 ---
 
@@ -177,16 +167,16 @@ Download the latest verified assets from the [Official GitHub Releases Page](htt
 ORQIVA includes automated test and validation suites:
 
 ```bash
-# Validate skill manifest, YAML frontmatter, markdown links, and screenshot assets
+# Validate skill manifest, links, and verify zero em-dash violations
 npm run validate
 
-# Build the documentation and showcase application
+# Compile multi-framework tokens (CSS, Tailwind, TypeScript, Kotlin, Dart)
+npm run tokens:compile
+
+# Build documentation website
 npm run build:site
 
-# Capture screenshots using headless browser automation
-npm run capture
-
-# Package release archives and generate SHA-256 checksums
+# Package release archives with SHA-256 checksums
 npm run package
 ```
 

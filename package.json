@@ -3,6 +3,21 @@
   "version": "1.0.0",
   "description": "Adaptive UI/UX Design Intelligence for AI Coding Agents and Production Interfaces",
   "main": "SKILL.md",
+  "type": "module",
+  "bin": {
+    "orqiva-ui-ux": "./bin/orqiva.js",
+    "orqiva": "./bin/orqiva.js"
+  },
+  "files": [
+    "bin",
+    "SKILL.md",
+    "references",
+    "workflows",
+    "checklists",
+    "examples",
+    "assets/showcase",
+    "assets/orqiva-banner.svg"
+  ],
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "test": "node scripts/validate.mjs",

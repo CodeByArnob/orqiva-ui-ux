@@ -49,7 +49,7 @@ function checkLinksInDir(dirPath) {
   const entries = fs.readdirSync(dirPath, { withFileTypes: true });
   for (const entry of entries) {
     const fullPath = path.join(dirPath, entry.name);
-    if (entry.isDirectory() && entry.name !== 'node_modules' && entry.name !== '.git' && entry.name !== 'dist') {
+    if (entry.isDirectory() && entry.name !== 'node_modules' && entry.name !== '.git' && entry.name !== 'dist' && entry.name !== '.next') {
       checkLinksInDir(fullPath);
     } else if (entry.isFile() && entry.name.endsWith('.md')) {
       const content = fs.readFileSync(fullPath, 'utf8');
@@ -74,40 +74,47 @@ function checkLinksInDir(dirPath) {
 
 checkLinksInDir(rootDir);
 
-// 3. Validate Screenshot Assets
-console.log('\n3. Validating Screenshot Assets...');
-const screenshotsDir = path.join(rootDir, 'assets', 'screenshots');
-const requiredScreenshots = [
-  '01-mobile-banking.png',
-  '01-mobile-banking-mobile.png',
-  '02-saas-dashboard.png',
-  '02-saas-dashboard-mobile.png',
-  '03-ecommerce.png',
-  '03-ecommerce-mobile.png',
-  '04-healthcare.png',
-  '04-healthcare-mobile.png',
-  '05-developer-workspace.png',
-  '06-responsive-website.png',
-  '07-before-after-redesign.png',
-  '08-responsive-comparison.png',
-  'README.md'
+// 3. Validate Showcase & Screenshot Assets
+console.log('\n3. Validating Showcase & Screenshot Assets...');
+const showcaseDir = path.join(rootDir, 'assets', 'showcase');
+const requiredShowcases = [
+  '01-auraglow-luxury-jewelry.jpg',
+  '02-orbitfinance-cosmic-saas.jpg',
+  '03-novabank-liquid-mobile-banking.jpg',
+  '04-pulsefocus-dark-productivity.jpg',
+  '05-chronotask-mobile-timetable.jpg',
+  '06-synthetix-workspace-tasks.jpg',
+  '07-veritas-wealth-spending.jpg',
 ];
 
-for (const file of requiredScreenshots) {
-  const filePath = path.join(screenshotsDir, file);
-  assert(fs.existsSync(filePath), `Screenshot asset exists: assets/screenshots/${file}`);
-  if (file.endsWith('.png')) {
+for (const file of requiredShowcases) {
+  const filePath = path.join(showcaseDir, file);
+  assert(fs.existsSync(filePath), `Showcase asset exists: assets/showcase/${file}`);
+  if (fs.existsSync(filePath)) {
     const stat = fs.statSync(filePath);
-    assert(stat.size > 5000, `File size is healthy (${(stat.size / 1024).toFixed(1)} KB)`);
-
-    const buf = fs.readFileSync(filePath);
-    const isPng = buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4e && buf[3] === 0x47;
-    assert(isPng, `PNG magic bytes verified (0x89 0x50 0x4E 0x47) for ${file}`);
+    assert(stat.size > 20000, `Showcase asset ${file} has healthy size (${(stat.size / 1024).toFixed(1)} KB)`);
   }
 }
 
-// 4. Validate Token Definitions
-console.log('\n4. Validating Design Token Definitions...');
+// 4. Validate Agent Skills Manifest & CLI Tool
+console.log('\n4. Validating Agent Skills Manifest & CLI Tool...');
+const manifestPath = path.join(rootDir, '.agent-skills', 'manifest.json');
+assert(fs.existsSync(manifestPath), '.agent-skills/manifest.json exists');
+if (fs.existsSync(manifestPath)) {
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  assert(manifest.name === 'orqiva-ui-ux', 'Manifest declares correct name');
+  assert(manifest.entrypoint === 'SKILL.md', 'Manifest entrypoint is SKILL.md');
+}
+
+const cliPath = path.join(rootDir, 'bin', 'orqiva.js');
+assert(fs.existsSync(cliPath), 'bin/orqiva.js exists');
+if (fs.existsSync(cliPath)) {
+  const cliContent = fs.readFileSync(cliPath, 'utf8');
+  assert(cliContent.startsWith('#!/usr/bin/env node'), 'bin/orqiva.js has shebang');
+}
+
+// 5. Validate Design Token Definitions
+console.log('\n5. Validating Design Token Definitions...');
 const cssTokensPath = path.join(rootDir, 'examples', 'design-tokens.css');
 assert(fs.existsSync(cssTokensPath), 'examples/design-tokens.css exists');
 const cssTokens = fs.readFileSync(cssTokensPath, 'utf8');
@@ -116,6 +123,41 @@ assert(cssTokens.includes('--color-bg-surface'), 'Tokens define --color-bg-surfa
 assert(cssTokens.includes('--color-accent-default'), 'Tokens define --color-accent-default');
 assert(cssTokens.includes('--color-success-fg'), 'Tokens define --color-success-fg');
 assert(cssTokens.includes('--space-1'), 'Tokens define 4pt/8pt spatial scale');
+
+// 6. Zero Em-Dash Strict Check
+console.log('\n6. Checking Zero Em-Dash Constraint...');
+let emDashViolations = 0;
+
+function checkEmDashInDir(dirPath) {
+  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dirPath, entry.name);
+    if (
+      entry.isDirectory() &&
+      entry.name !== 'node_modules' &&
+      entry.name !== '.git' &&
+      entry.name !== 'dist' &&
+      entry.name !== '.next'
+    ) {
+      checkEmDashInDir(fullPath);
+    } else if (
+      entry.isFile() &&
+      /\.(md|js|mjs|ts|tsx|json)$/.test(entry.name) &&
+      entry.name !== 'package-lock.json' &&
+      entry.name !== 'validate.mjs' &&
+      entry.name !== 'remove-em-dash.mjs'
+    ) {
+      const content = fs.readFileSync(fullPath, 'utf8');
+      if (content.includes('\u2014')) {
+        console.error(`  ✗ Em-dash violation in ${path.relative(rootDir, fullPath)}`);
+        emDashViolations++;
+      }
+    }
+  }
+}
+
+checkEmDashInDir(rootDir);
+assert(emDashViolations === 0, `Zero em-dash characters across repository (found: ${emDashViolations})`);
 
 console.log('\n========================================');
 console.log(`Validation Results: ${passed} passed, ${errors} failed`);

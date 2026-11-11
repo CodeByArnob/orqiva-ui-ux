@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { 
   Sparkles, Terminal, Copy, Check, ArrowRight, ShieldCheck, 
-  Smartphone, Monitor, Cpu, Layers, ExternalLink, Download, Star, Eye
+  Smartphone, Monitor, Cpu, Layers, ExternalLink, Download, Star, Eye,
+  Code2, CheckCircle2, ChevronRight, Play
 } from 'lucide-react';
 import { TokenPlayground } from './TokenPlayground';
 import { MotionHeroGraphic } from './MotionHeroGraphic';
@@ -11,23 +12,72 @@ export const LandingPage: React.FC<{
   onNavigateToDocs: () => void;
   onNavigateToShowcase: () => void;
 }> = ({ onNavigateToDocs, onNavigateToShowcase }) => {
-  const [copied, setCopied] = useState(false);
+  const [copiedCli, setCopiedCli] = useState(false);
+  const [copiedSkill, setCopiedSkill] = useState(false);
+  const [activeCliTab, setActiveCliTab] = useState<'init' | 'audit' | 'install'>('init');
 
-  const copyCommand = () => {
-    navigator.clipboard.writeText('npx skills add CodeByArnob/orqiva-ui-ux --skill orqiva-ui-ux -g');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const copyCliCommand = () => {
+    navigator.clipboard.writeText('npx orqiva-ui-ux init');
+    setCopiedCli(true);
+    setTimeout(() => setCopiedCli(false), 2000);
   };
 
-  const screenshots = [
-    { title: 'Premium Mobile Banking', file: '01-mobile-banking.png', dir: 'Trust-Led Restrained', desc: 'ApexBank mobile interface featuring biometric auth, virtual card freeze, and transaction categorizer.' },
-    { title: 'SaaS Telemetry Dashboard', file: '02-saas-dashboard.png', dir: 'Utilitarian Data-Dense', desc: 'CloudScale real-time cluster monitor with P99 latency sparklines and filterable service data table.' },
-    { title: 'Modern E-Commerce Storefront', file: '03-ecommerce.png', dir: 'Conversion-Led Commerce', desc: 'Nordic Atelier luxury chronograph detail with dynamic variant switcher and slide-out cart drawer.' },
-    { title: 'Clinical Healthcare Portal', file: '04-healthcare.png', dir: 'Calm Human-Centered', desc: 'AuraCare EHR system with real-time vitals monitoring and interactive medication administration regimen.' },
-    { title: 'Developer IDE Workspace', file: '05-developer-workspace.png', dir: 'Utilitarian DevTools', desc: 'Nexus Studio with multi-file explorer, syntax-highlighted code editor, and live terminal execution log.' },
-    { title: 'Responsive Marketing Portal', file: '06-responsive-website.png', dir: 'Modern Minimal Editorial', desc: 'ORQIVA marketing landing page with hero conversion anatomy and interactive FAQ accordions.' },
-    { title: 'Before & After Heuristic Redesign', file: '07-before-after-redesign.png', dir: 'Audit & Refactor', desc: 'Direct side-by-side comparison of high-friction legacy clinical records table vs accessible card reflow.' },
-    { title: 'Desktop vs. Mobile Reflow Comparison', file: '08-responsive-comparison.png', dir: 'Adaptive Reflow', desc: 'Dual-frame responsive preview demonstrating ergonomic thumb-zone layout adaptation.' },
+  const copySkillCommand = () => {
+    navigator.clipboard.writeText('npx skills add CodeByArnob/orqiva-ui-ux --skill orqiva-ui-ux -g');
+    setCopiedSkill(true);
+    setTimeout(() => setCopiedSkill(false), 2000);
+  };
+
+  const showcases = [
+    { 
+      title: 'AuraGlow Jewelry Atelier', 
+      file: 'assets/showcase/01-auraglow-luxury-jewelry.jpg', 
+      dir: 'Luxury Editorial E-Commerce', 
+      desc: 'Dark obsidian canvas (#0B0B0D) with champagne gold accents (#D4AF37), high-contrast serif headers, and asymmetric split-screen product showcase.',
+      badge: 'Dark Obsidian & Gold'
+    },
+    { 
+      title: 'OrbitFinance SaaS', 
+      file: 'assets/showcase/02-orbitfinance-cosmic-saas.jpg', 
+      dir: 'Cosmic FinTech Telemetry', 
+      desc: 'Celestial void backdrop (#060714) with glowing neon violet and cyan sparklines, glassmorphic overview modules, and floating gradient cards.',
+      badge: 'Cosmic Void & Neon'
+    },
+    { 
+      title: 'NovaBank Mobile', 
+      file: 'assets/showcase/03-novabank-liquid-mobile-banking.jpg', 
+      dir: 'Liquid Chrome Neo-Banking', 
+      desc: '3-screen continuous mobile flow: 3D fluid chrome onboarding splash, platinum/coral balance cards, and a tactile 12-key numeric transfer keypad.',
+      badge: 'Liquid Chrome 3-Screen'
+    },
+    { 
+      title: 'PulseFocus Productivity', 
+      file: 'assets/showcase/04-pulsefocus-dark-productivity.jpg', 
+      dir: 'Dark Pulse Personal Metrics', 
+      desc: 'Stealth navy suite (#0C0D14) with concentric SVG goal completion rings (3/5 tasks), 7-day velocity bar metrics, and pill dock navigation.',
+      badge: 'Radial Goal Ring & Bars'
+    },
+    { 
+      title: 'ChronoTask Mobile Suite', 
+      file: 'assets/showcase/05-chronotask-mobile-timetable.jpg', 
+      dir: 'Timetable Calendar & Stopwatch', 
+      desc: 'Daily progress header (2/7 tasks), color-coded chronological timetable with real-time cursor needle, and task checklist with running stopwatch.',
+      badge: 'Timetable & Stopwatch'
+    },
+    { 
+      title: 'Synthetix Workspace', 
+      file: 'assets/showcase/06-synthetix-workspace-tasks.jpg', 
+      dir: 'Neumorphic Dark Workspace Tasks', 
+      desc: 'Pitch matte canvas (#0E0E12) with floating angled glass project cards, team absence and vacation calendar grids, and hourly resource reports.',
+      badge: 'Neumorphic Dark Grid'
+    },
+    { 
+      title: 'Veritas Wealth & Banking', 
+      file: 'assets/showcase/07-veritas-wealth-spending.jpg', 
+      dir: 'Neo-Banking & Donut Spending', 
+      desc: 'Dual floating mint and cyan debit cards with contactless chips, quick action buttons, and a 6-segment spending breakdown donut chart.',
+      badge: 'Dual Mint Cards & Donut'
+    },
   ];
 
   return (
@@ -66,19 +116,20 @@ export const LandingPage: React.FC<{
           </button>
         </div>
 
-        {/* Universal Install Box */}
-        <div className="mt-8 max-w-xl mx-auto p-2 bg-slate-900 border border-slate-800 rounded-2xl flex items-center justify-between text-xs font-mono shadow-2xl">
-          <div className="flex items-center space-x-2 px-3 py-1 text-slate-300 truncate">
-            <span className="text-sky-500 font-bold select-none">$</span>
-            <span className="truncate">npx skills add CodeByArnob/orqiva-ui-ux --skill orqiva-ui-ux -g</span>
+        {/* Interactive CLI Quickstart Bar */}
+        <div className="mt-8 max-w-2xl mx-auto p-2 bg-slate-900 border border-slate-800 rounded-2xl flex flex-col sm:flex-row items-center justify-between text-xs font-mono shadow-2xl gap-2">
+          <div className="flex items-center space-x-2 px-3 py-1 text-slate-300 truncate w-full sm:w-auto">
+            <span className="text-emerald-400 font-bold select-none">$</span>
+            <span className="text-sky-300 font-semibold">npx orqiva-ui-ux init</span>
+            <span className="hidden md:inline text-slate-500">: Inject tokens & Tailwind preset</span>
           </div>
           <button
-            onClick={copyCommand}
-            className="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded-xl transition-colors flex items-center space-x-1.5 shrink-0"
-            title="Copy command to clipboard"
+            onClick={copyCliCommand}
+            className="w-full sm:w-auto px-4 py-2 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-xl transition-all flex items-center justify-center space-x-1.5 shrink-0"
+            title="Copy CLI command"
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-            <span>{copied ? 'Copied!' : 'Copy'}</span>
+            {copiedCli ? <Check className="w-3.5 h-3.5 text-slate-950" /> : <Copy className="w-3.5 h-3.5" />}
+            <span>{copiedCli ? 'Copied to Clipboard!' : 'Run Initializer'}</span>
           </button>
         </div>
       </section>
@@ -86,6 +137,106 @@ export const LandingPage: React.FC<{
       {/* Motion Hero Graphic : Real-time Animated Radar Telemetry */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <MotionHeroGraphic />
+      </section>
+
+      {/* Interactive CLI Showcase Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/70 border border-slate-800 shadow-xl">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-6">
+            <div>
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono mb-2">
+                <Terminal className="w-3.5 h-3.5" />
+                <span>ZERO-DEPENDENCY DEVELOPER CLI</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                Instant Design System Injection in One Command
+              </h2>
+              <p className="text-sm text-slate-400 mt-1">
+                Run directly in any project. No global installs required. Auto-detects Next.js, Vite, Tailwind, Flutter, or Compose.
+              </p>
+            </div>
+
+            {/* CLI Command Switcher Tabs */}
+            <div className="flex space-x-2 p-1 bg-slate-950/80 rounded-xl border border-slate-800">
+              <button
+                onClick={() => setActiveCliTab('init')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors ${
+                  activeCliTab === 'init' ? 'bg-sky-500 text-slate-950' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                init
+              </button>
+              <button
+                onClick={() => setActiveCliTab('audit')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors ${
+                  activeCliTab === 'audit' ? 'bg-sky-500 text-slate-950' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                audit
+              </button>
+              <button
+                onClick={() => setActiveCliTab('install')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors ${
+                  activeCliTab === 'install' ? 'bg-sky-500 text-slate-950' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                install
+              </button>
+            </div>
+          </div>
+
+          {/* Terminal Output Mockup */}
+          <div className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden font-mono text-xs">
+            <div className="px-4 py-2.5 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                <span className="text-slate-400 text-[11px] ml-2">bash : ~/my-project</span>
+              </div>
+              <span className="text-slate-500 text-[11px]">orqiva-ui-ux v1.0.0</span>
+            </div>
+
+            <div className="p-5 space-y-2 text-slate-300">
+              {activeCliTab === 'init' && (
+                <>
+                  <div className="text-emerald-400 font-bold">$ npx orqiva-ui-ux init</div>
+                  <div className="text-slate-500">Auto-detecting project stack...</div>
+                  <div className="text-sky-400">  ✓ Detected Next.js 15 & Tailwind CSS</div>
+                  <div className="text-slate-200 font-semibold pt-2">? Select Application Archetype:</div>
+                  <div className="text-slate-400">  1) Luxury Editorial E-Commerce (AuraGlow: dark obsidian, champagne gold)</div>
+                  <div className="text-slate-400">  2) Cosmic FinTech SaaS (OrbitFinance: celestial void, neon violet/cyan)</div>
+                  <div className="text-slate-400">  3) Liquid Chrome Neo-Banking (NovaBank: obsidian, coral, tactile keypad)</div>
+                  <div className="text-emerald-400 font-semibold pt-2">  ✓ Injected CSS Custom Properties: src/styles/orqiva-tokens.css</div>
+                  <div className="text-emerald-400 font-semibold">  ✓ Generated Tailwind Preset: orqiva.preset.js</div>
+                  <div className="text-emerald-400 font-semibold">  ✓ Generated TypeScript Tokens: src/tokens/orqiva.ts</div>
+                  <div className="text-sky-400 pt-1 font-bold">Initialization Complete! Ready to build.</div>
+                </>
+              )}
+
+              {activeCliTab === 'audit' && (
+                <>
+                  <div className="text-emerald-400 font-bold">$ npx orqiva-ui-ux audit</div>
+                  <div className="text-slate-500">Auditing UI Codebase for Design and Accessibility Compliance...</div>
+                  <div className="text-slate-300">Scanned 19 component and template files.</div>
+                  <div className="text-emerald-400 pt-2 font-bold">✓ No critical design system or accessibility violations detected!</div>
+                  <div className="text-slate-400 text-[11px]">All interactive buttons enforce 44x44px touch targets. All body text passes WCAG 2.2 AA (4.5:1).</div>
+                </>
+              )}
+
+              {activeCliTab === 'install' && (
+                <>
+                  <div className="text-emerald-400 font-bold">$ npx orqiva-ui-ux install</div>
+                  <div className="text-slate-500">Configuring AI Coding Agents with ORQIVA Design Intelligence...</div>
+                  <div className="text-emerald-400">  ✓ Installed Cursor Rule: .cursor/rules/orqiva-ui-ux.mdc</div>
+                  <div className="text-emerald-400">  ✓ Configured Claude Code: CLAUDE.md</div>
+                  <div className="text-emerald-400">  ✓ Installed Windsurf Rule: .windsurfrules</div>
+                  <div className="text-sky-400 pt-2 font-bold">Skill installation complete! Your AI agent is now primed.</div>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Supported Coding Agents Ecosystem */}
@@ -117,19 +268,19 @@ export const LandingPage: React.FC<{
         <ContrastCalculator />
       </section>
 
-      {/* Real Screenshot Gallery */}
+      {/* Real Showcase Gallery : The 7 Tier-1 Application Archetypes */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-4">
           <div>
             <div className="inline-flex items-center space-x-1.5 text-xs font-mono text-sky-400 mb-2">
-              <CameraIcon className="w-3.5 h-3.5" />
-              <span>ACTUAL RUNNING IMPLEMENTATIONS</span>
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>TIER-1 PRODUCTION APPLICATION ARCHETYPES</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              Real Interface Screenshot Gallery
+              Real Showcase & Design Directions
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-slate-400">
-              Captured via automated headless Chrome from live running code : no stock photos, no AI image hallucinations.
+              Each interface below is a fully codified design archetype supported by ORQIVA with custom token signatures and layout heuristics.
             </p>
           </div>
 
@@ -142,40 +293,41 @@ export const LandingPage: React.FC<{
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {screenshots.map((s, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {showcases.map((s, idx) => (
             <div 
               key={idx}
               className="rounded-2xl border border-slate-800 bg-slate-900/50 overflow-hidden hover:border-slate-700 transition-all flex flex-col justify-between group shadow-lg"
             >
               <div>
-                <div className="aspect-[16/10] bg-slate-950 relative overflow-hidden flex items-center justify-center border-b border-slate-800">
+                <div className="aspect-[16/11] bg-slate-950 relative overflow-hidden flex items-center justify-center border-b border-slate-800">
                   <img 
-                    src={`assets/screenshots/${s.file}`} 
+                    src={s.file} 
                     alt={s.title}
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                     }}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
-                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-slate-900/90 text-[10px] font-mono text-sky-400 border border-slate-700">
-                    {s.dir}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                  <div className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-slate-900/90 text-[10px] font-mono text-sky-400 border border-slate-700">
+                    {s.badge}
                   </div>
                 </div>
 
-                <div className="p-4">
-                  <h3 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">
+                <div className="p-5">
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-sky-400 mb-1">{s.dir}</div>
+                  <h3 className="text-base font-bold text-white group-hover:text-sky-400 transition-colors">
                     {s.title}
                   </h3>
-                  <p className="mt-1 text-xs text-slate-400 leading-relaxed">
+                  <p className="mt-2 text-xs text-slate-400 leading-relaxed">
                     {s.desc}
                   </p>
                 </div>
               </div>
 
-              <div className="p-4 pt-0 flex justify-between items-center text-[11px] font-mono text-slate-500">
-                <span>Viewport: 1440×900</span>
+              <div className="p-5 pt-0 flex justify-between items-center text-[11px] font-mono text-slate-500 border-t border-slate-800/50 mt-4">
+                <span>Codified Tokens</span>
                 <span className="text-emerald-400">WCAG 2.2 AA</span>
               </div>
             </div>
@@ -248,27 +400,27 @@ export const LandingPage: React.FC<{
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
             Ready to upgrade your AI pair programming?
           </h2>
-          <p className="mt-3 text-xs sm:text-sm text-slate-400 max-w-xl mx-auto">
-            Install ORQIVA in seconds and start generating accessible, production-grade interfaces today.
+          <p className="mt-3 text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
+            Install ORQIVA in your coding assistant today and generate design-system-compliant, accessible interfaces effortlessly.
           </p>
 
-          <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              onClick={copyCommand}
-              className="px-6 py-3 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-xl text-xs transition-colors flex items-center justify-center space-x-2"
+              onClick={copySkillCommand}
+              className="w-full sm:w-auto px-6 py-3 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-xl text-xs sm:text-sm transition-all shadow-lg shadow-sky-500/20 flex items-center justify-center space-x-2"
             >
-              {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-              <span>{copied ? 'Command Copied!' : 'Copy Install Command'}</span>
+              {copiedSkill ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+              <span>{copiedSkill ? 'Skill Copied to Clipboard!' : 'Copy Universal Install Command'}</span>
             </button>
 
             <a
-              href="https://github.com/CodeByArnob/orqiva-ui-ux/releases"
+              href="https://github.com/CodeByArnob/orqiva-ui-ux"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-xs transition-colors flex items-center justify-center space-x-2 border border-slate-700"
+              className="w-full sm:w-auto px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-xs sm:text-sm transition-all border border-slate-700 flex items-center justify-center space-x-2"
             >
-              <Download className="w-4 h-4" />
-              <span>Download Release Package (.ZIP)</span>
+              <span>View Repository on GitHub</span>
+              <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
@@ -276,10 +428,3 @@ export const LandingPage: React.FC<{
     </div>
   );
 };
-
-const CameraIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
-    <circle cx="12" cy="13" r="3" />
-  </svg>
-);
