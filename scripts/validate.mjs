@@ -49,7 +49,7 @@ function checkLinksInDir(dirPath) {
   const entries = fs.readdirSync(dirPath, { withFileTypes: true });
   for (const entry of entries) {
     const fullPath = path.join(dirPath, entry.name);
-    if (entry.isDirectory() && entry.name !== 'node_modules' && entry.name !== '.git' && entry.name !== 'dist' && entry.name !== '.next') {
+    if (entry.isDirectory() && entry.name !== 'node_modules' && entry.name !== '.git' && entry.name !== 'dist' && entry.name !== '.next' && entry.name !== '.claude') {
       checkLinksInDir(fullPath);
     } else if (entry.isFile() && entry.name.endsWith('.md')) {
       const content = fs.readFileSync(fullPath, 'utf8');
@@ -146,7 +146,8 @@ function checkEmDashInDir(dirPath) {
       entry.name !== 'node_modules' &&
       entry.name !== '.git' &&
       entry.name !== 'dist' &&
-      entry.name !== '.next'
+      entry.name !== '.next' &&
+      entry.name !== '.claude'
     ) {
       checkEmDashInDir(fullPath);
     } else if (
