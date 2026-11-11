@@ -4,6 +4,8 @@ import {
   Smartphone, Monitor, Cpu, Layers, ExternalLink, Download, Star, Eye
 } from 'lucide-react';
 import { TokenPlayground } from './TokenPlayground';
+import { MotionHeroGraphic } from './MotionHeroGraphic';
+import { ContrastCalculator } from './ContrastCalculator';
 
 export const LandingPage: React.FC<{ 
   onNavigateToDocs: () => void;
@@ -24,14 +26,14 @@ export const LandingPage: React.FC<{
     { title: 'Clinical Healthcare Portal', file: '04-healthcare.png', dir: 'Calm Human-Centered', desc: 'AuraCare EHR system with real-time vitals monitoring and interactive medication administration regimen.' },
     { title: 'Developer IDE Workspace', file: '05-developer-workspace.png', dir: 'Utilitarian DevTools', desc: 'Nexus Studio with multi-file explorer, syntax-highlighted code editor, and live terminal execution log.' },
     { title: 'Responsive Marketing Portal', file: '06-responsive-website.png', dir: 'Modern Minimal Editorial', desc: 'ORQIVA marketing landing page with hero conversion anatomy and interactive FAQ accordions.' },
-    { title: 'Before & After Heuristic Redesign', file: '07-before-after-redesign.png', dir: 'Audit & Refactor', desc: 'Direct side-by-side comparison of high-friction legacy clinical records table vs. accessible card reflow.' },
+    { title: 'Before & After Heuristic Redesign', file: '07-before-after-redesign.png', dir: 'Audit & Refactor', desc: 'Direct side-by-side comparison of high-friction legacy clinical records table vs accessible card reflow.' },
     { title: 'Desktop vs. Mobile Reflow Comparison', file: '08-responsive-comparison.png', dir: 'Adaptive Reflow', desc: 'Dual-frame responsive preview demonstrating ergonomic thumb-zone layout adaptation.' },
   ];
 
   return (
     <div className="space-y-20 pb-20">
       {/* Hero Section */}
-      <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
+      <section className="relative pt-12 pb-6 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-mono mb-6 shadow-sm">
           <Sparkles className="w-3.5 h-3.5" />
           <span>PRODUCTION OPEN-SOURCE RELEASE v1.0.0</span>
@@ -42,7 +44,7 @@ export const LandingPage: React.FC<{
         </h1>
 
         <p className="mt-6 text-base sm:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto font-normal">
-          Equip your AI pair programmer with senior product design heuristics, domain-specific visual directions, and WCAG 2.2 AA accessibility standards. Real working implementations—zero generic purple gradients.
+          Equip your AI pair programmer with senior product design heuristics, domain-specific visual directions, and WCAG 2.2 AA accessibility standards. Real working implementations, zero generic purple gradients.
         </p>
 
         {/* Dual CTA & Command Box */}
@@ -81,6 +83,11 @@ export const LandingPage: React.FC<{
         </div>
       </section>
 
+      {/* Motion Hero Graphic : Real-time Animated Radar Telemetry */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <MotionHeroGraphic />
+      </section>
+
       {/* Supported Coding Agents Ecosystem */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 text-center">
@@ -105,6 +112,11 @@ export const LandingPage: React.FC<{
         </div>
       </section>
 
+      {/* Interactive Contrast Calculator Tool */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ContrastCalculator />
+      </section>
+
       {/* Real Screenshot Gallery */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-4">
@@ -117,7 +129,7 @@ export const LandingPage: React.FC<{
               Real Interface Screenshot Gallery
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-slate-400">
-              Captured via automated headless Chrome from live running code—no stock photos, no AI image hallucinations.
+              Captured via automated headless Chrome from live running code : no stock photos, no AI image hallucinations.
             </p>
           </div>
 
@@ -137,13 +149,11 @@ export const LandingPage: React.FC<{
               className="rounded-2xl border border-slate-800 bg-slate-900/50 overflow-hidden hover:border-slate-700 transition-all flex flex-col justify-between group shadow-lg"
             >
               <div>
-                {/* Image Frame with fallback to live preview */}
                 <div className="aspect-[16/10] bg-slate-950 relative overflow-hidden flex items-center justify-center border-b border-slate-800">
                   <img 
                     src={`assets/screenshots/${s.file}`} 
                     alt={s.title}
                     onError={(e) => {
-                      // Fallback display if asset path not yet rendered
                       (e.target as HTMLElement).style.display = 'none';
                     }}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"

@@ -212,7 +212,7 @@ server.listen(PORT, async () => {
     await browser.close();
 
     // Generate assets/screenshots/README.md catalog
-    let readme = `# ORQIVA UI/UX — Verified Real Screenshots Catalog\n\n`;
+    let readme = `# ORQIVA UI/UX : Verified Real Screenshots Catalog\n\n`;
     readme += `Every screenshot in this directory is generated from a real, functioning React component running locally and captured via automated headless browser.\n\n`;
     readme += `**No AI-generated mockups. No stock photos. Zero fabricated UI.**\n\n`;
     readme += `| Screenshot | Title | Target Viewport | Size | SHA256 (prefix) | Source Code Component |\n`;

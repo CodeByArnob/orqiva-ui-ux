@@ -13,7 +13,7 @@ const siteDistDir = path.join(rootDir, 'site', 'dist');
 const VERSION = '1.0.0';
 
 console.log('\n========================================');
-console.log(`ORQIVA UI/UX — Packaging Release v${VERSION}`);
+console.log(`ORQIVA UI/UX : Packaging Release v${VERSION}`);
 console.log('========================================\n');
 
 // Clean dist directory
@@ -111,7 +111,7 @@ console.log(`  ✓ Saved: dist/checksums.sha256`);
 
 // 5. Generate Release Notes: dist/RELEASE_NOTES.md
 console.log('5. Generating GitHub Release Notes...');
-let releaseNotes = `# ORQIVA UI/UX v${VERSION} — Production Release\n\n`;
+let releaseNotes = `# ORQIVA UI/UX v${VERSION} : Production Release\n\n`;
 releaseNotes += `**ORQIVA UI/UX** is a production-grade Adaptive Design Intelligence ecosystem for AI coding agents and frontend engineers.\n\n`;
 releaseNotes += `### Core Capabilities in v${VERSION}\n`;
 releaseNotes += `- **Adaptive Visual Direction Matrix**: Contextual adaptation for Banking/Fintech, Developer Observability, Healthcare EHR, E-Commerce, and Marketing.\n`;

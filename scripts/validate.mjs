@@ -20,7 +20,7 @@ function assert(condition, message) {
 }
 
 console.log('\n========================================');
-console.log('ORQIVA UI/UX — Skill & Repository Validation');
+console.log('ORQIVA UI/UX : Skill & Repository Validation');
 console.log('========================================\n');
 
 // 1. Validate SKILL.md Frontmatter

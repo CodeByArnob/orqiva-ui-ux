@@ -1,4 +1,4 @@
-# ORQIVA UI/UX — Verified Real Screenshots Catalog
+# ORQIVA UI/UX : Verified Real Screenshots Catalog
 
 Every screenshot in this directory is generated from a real, functioning React component running locally and captured via automated headless browser.
 
